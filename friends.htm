@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Friends</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body style="margin:0px">
+ <div id="header" class="box" style="margin-top: -60px">
+	<div class="logo"></div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+window.onload = function() {
+ var t = setInterval( function() {
+        var div = document.createElement("div");
+        div.className = "div_friend  animated flipInX";
+        div.style.backgroundImage = 'url("svg/avatar.svg")';
+        div.style.opacity = Math.random(1);
+	    div.onclick = function(){
+            location = "Messanger.htm";
+        }
+        document.body.appendChild(div);
+     }, 20);
+setTimeout(function () {clearInterval(t)}, 600);
+}
+</script>

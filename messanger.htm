@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversation</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta charset="utf-8">
+</head>
+<body style="margin:0px">
+	<div id="footer" class="footer" style="position: fixed; bottom: 0px;">
+        	<input id="text" style="width:98%; height:90%" type="text" class="inputs" onkeypress="add(event)" />
+   </div>
+</body>
+</html>
+
+<script>
+window.onload = function() {
+	document.getElementById("text").focus();
+}
+    function add(e) {
+        e = e || window.event;
+
+        if (e.keyCode == 13) {
+		        if(document.getElementById("text").value != "") {
+              var div = document.createElement('div');
+        	    div.className = "mine_message animated fadeInRight";
+        	    div.innerHTML = "<strong>I</strong><br> " + text.value;
+        	    document.body.appendChild(div);
+        	    document.getElementById("text").value = "";
+        	    window.scroll(window.pageXOffset + 1000, window.pageYOffset + 1000);
+        	    document.getElementById("text").focus();
+        	    setTimeout(add_comp, 1000);
+	      }
+    }
+}
+    function add_comp() {
+        var div = document.createElement('div');
+        div.className = "yours_message animated fadeInRight";
+        var data = new Date();
+        div.innerHTML = "<strong>PC</strong><br>I know what time it's " + data.toLocaleTimeString();
+        document.body.appendChild(div);
+        window.scroll(window.pageXOffset + 1000, window.pageYOffset + 1000);
+        document.getElementById("text").focus();
+    }
+</script>
